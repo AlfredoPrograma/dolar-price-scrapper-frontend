@@ -1,4 +1,5 @@
 ---
+import { DollarSourceSelector } from "../components/DollarSourceSelector/DollarSourceSelector";
 import Layout from "../layouts/Layout.astro";
 import { getCurrentDate } from "../utils/date";
 import { capitalize } from "../utils/strings";
@@ -16,7 +17,7 @@ const date = capitalize(getCurrentDate());
     <section class="text-center flex flex-col gap-2">
       <span>{date}</span>
       <h1 class="text-6xl font-bold">Bs. 20,93</h1>
-      <span>@MonitorDolar</span>
+      <DollarSourceSelector client:only />
     </section>
 
     <footer class="text-center align-bottom">
