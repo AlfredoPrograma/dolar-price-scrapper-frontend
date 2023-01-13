@@ -1,9 +1,32 @@
 ---
 import { DollarSourceSelector } from "../components/DollarSourceSelector/DollarSourceSelector";
 import Layout from "../layouts/Layout.astro";
+import type { SelectOption } from "../types/interfaces";
 import { getCurrentDate } from "../utils/date";
 import { capitalize } from "../utils/strings";
 
+const options: SelectOption[] = [
+  {
+    value: 1,
+    text: "BCV",
+  },
+  {
+    value: 2,
+    text: "EnParaleloVzla",
+  },
+  {
+    value: 3,
+    text: "DolarToday",
+  },
+  {
+    value: 4,
+    text: "MonitorDolar",
+  },
+  {
+    value: 5,
+    text: "Binance",
+  },
+];
 const date = capitalize(getCurrentDate());
 ---
 
@@ -17,7 +40,7 @@ const date = capitalize(getCurrentDate());
     <section class="text-center flex flex-col gap-2">
       <span>{date}</span>
       <h1 class="text-6xl font-bold">Bs. 20,93</h1>
-      <DollarSourceSelector client:only />
+      <DollarSourceSelector options={options} client:load />
     </section>
 
     <footer class="text-center align-bottom">
