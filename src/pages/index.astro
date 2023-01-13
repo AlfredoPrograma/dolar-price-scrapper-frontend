@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCurrentDate } from "../utils/date";
+import { capitalize } from "../utils/strings";
+
+const date = capitalize(getCurrentDate());
+---
+
+<Layout title="Welcome to Astro.">
+  <main class="h-full flex flex-col justify-between">
+    <header class="flex flex-col text-center">
+      <h3 class="text-3xl font-bold">Dolar App</h3>
+      <h4 class="text italic">Visualiza el valor más reciente del dólar</h4>
+    </header>
+
+    <section class="text-center flex flex-col gap-2">
+      <span>{date}</span>
+      <h1 class="text-6xl font-bold">Bs. 20,93</h1>
+      <span>@MonitorDolar</span>
+    </section>
+
+    <footer class="text-center align-bottom">
+      <span>Desarrollado por @AlfredoPrograma &#x2615;</span>
+    </footer>
+  </main>
+</Layout>
