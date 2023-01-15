@@ -1,33 +1,10 @@
 ---
-import { DollarSourceSelector } from "../components/DollarSourceSelector/DollarSourceSelector";
+import { DollarPriceSection } from "../components/DollarPriceSection";
 import Layout from "../layouts/Layout.astro";
-import type { SelectOption } from "../types/interfaces";
-import { getCurrentDate } from "../utils/date";
-import { capitalize } from "../utils/strings";
 
-const options: SelectOption[] = [
-  {
-    value: 1,
-    text: "BCV",
-  },
-  {
-    value: 2,
-    text: "EnParaleloVzla",
-  },
-  {
-    value: 3,
-    text: "DolarToday",
-  },
-  {
-    value: 4,
-    text: "MonitorDolar",
-  },
-  {
-    value: 5,
-    text: "Binance",
-  },
-];
-const date = capitalize(getCurrentDate());
+import { getDollarPrices } from "../services/dollarPrices";
+
+const price = await getDollarPrices();
 ---
 
 <Layout title="Welcome to Astro.">
@@ -37,11 +14,7 @@ const date = capitalize(getCurrentDate());
       <h4 class="text italic">Visualiza el valor más reciente del dólar</h4>
     </header>
 
-    <section class="text-center flex flex-col gap-2">
-      <span>{date}</span>
-      <h1 class="text-6xl font-bold">Bs. 20,93</h1>
-      <DollarSourceSelector options={options} client:load />
-    </section>
+    <DollarPriceSection dollarPrice={price[0]} client:load />
 
     <footer class="text-center align-bottom">
       <span>Desarrollado por @AlfredoPrograma &#x2615;</span>

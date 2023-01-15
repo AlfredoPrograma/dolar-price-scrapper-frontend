@@ -1,13 +1,13 @@
-const getCurrentDate = () => {
+const getCurrentDate = (date?: Date) => {
   const options: Intl.DateTimeFormatOptions = {
     weekday: "long",
     month: "long",
     day: "numeric",
   };
   
-  const date = new Date().toLocaleDateString("es-VE", options)
+  const formattedDate = new Date(date || Date.now()).toLocaleDateString("es-VE", options)
 
-  return date
+  return formattedDate
 }
 
 export { getCurrentDate }

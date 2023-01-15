@@ -12,6 +12,10 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script
+      src="https://kit.fontawesome.com/f10810f563.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" /><link
       rel="preconnect"
       href="https://fonts.gstatic.com"
@@ -23,9 +27,7 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body
-    class="text-gray-50 bg-gradient-to-br from-gray-900 to-gray-600 h-full w-full py-8 px-4"
-  >
+  <body class="text-gray-800 bg-gray-100 h-full w-full py-8 px-4">
     <slot />
   </body>
 
